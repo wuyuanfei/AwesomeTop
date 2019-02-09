@@ -47,7 +47,7 @@ sudo fc-cache -fv
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * [anaconda](https://www.anaconda.com/distribution/#download-section)
 * [typora](https://www.typora.io/#linux) 
-* **deep-win-ubuntu**
+* [deep-win-ubuntu](https://github.com/wszqkzqk/deepin-wine-ubuntu)
 * **微信**
 * **TIM**
 * **dingtalk**
@@ -65,8 +65,7 @@ sudo apt-get install typora
 
 #### 8. 挂载window共享盘
 ``` sh
-sudo mkdir /mnt/pemt
-sudo mount -t cifs -o username='eng022',password='12345r*'  //192.168.0.60/共享盘 /mnt/pemt/
+sudo mount -t cifs -o username='xxxxx',password='xxxxxx'  //192.168.xx.xx/共享盘 /mnt/
 ```
 
 #### 9. 后期配置

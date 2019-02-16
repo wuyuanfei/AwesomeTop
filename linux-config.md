@@ -13,7 +13,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 ####  3. 安装常用软件
 ``` sh
-sudo apt-get install vim automake cmake autoconf build-essential libglu1-mesa-dev gcc g++ gcc-multilib g++-multilib fcitx minicom xinetd nscd tftpd-hpa tftp-hpa openvpn openssh-server net-tools sqlite3 samba-common samba cifs-utils libncurses5-dev zlib1g-dev gawk git-core subversion libssl-dev fcitx-config-gtk fcitx-frontend-all fcitx-module-cloudpinyin fcitx-ui-classic meld -y
+sudo apt-get install vim automake cmake autoconf build-essential libglu1-mesa-dev gcc g++ gcc-multilib g++-multilib fcitx minicom xinetd nscd tftpd-hpa tftp-hpa openvpn openssh-server net-tools sqlite3 samba-common samba cifs-utils libncurses5-dev zlib1g-dev gawk git-core subversion libssl-dev fcitx-config-gtk fcitx-frontend-all fcitx-module-cloudpinyin sogoupinyin fcitx-ui-classic meld electron-ssr google-chrome-stable wps-office netease-cloud-music -y
 ```
 
 #### 4. 清除安装包
@@ -34,12 +34,7 @@ sudo fc-cache -fv
 
 #### 6. 安装第三方软件
 
-* [wps套件](http://www.wps.cn/product/wpslinux)
-* [搜狗输入法](https://pinyin.sogou.com/linux/?r=pinyin)
-* [谷歌浏览器](https://chrome.en.softonic.com/)
-* [ShadowsocksR](https://github.com/erguotou520/electron-ssr)
 * [福熙阅读器](https://www.foxitsoftware.cn/downloads/)
-* [网易云音乐](https://music.163.com/#/download)
 * [QT](http://download.qt.io/official_releases/qt/)
 * [CLion](http://www.jetbrains.com/clion/)
 * [Pycharm](http://www.jetbrains.com/pycharm/)
@@ -148,6 +143,4 @@ nvcc -V
 * tensorflow-gpu
 
 * opencv-python
-
-  
 

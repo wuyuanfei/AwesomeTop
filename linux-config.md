@@ -1,9 +1,11 @@
 # Linux常用配置
 
+[TOC]
+
 #### 1. 移除不常用软件
 
 ``` sh
-sudo apt-get remove libreoffice-* firefox* totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines gnome-orca webbrowser-app gnome-sudoku landscape-client-ui-install transmission-* hexchat-common -y
+sudo apt-get remove libreoffice-* firefox* totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines gnome-orca webbrowser-app gnome-sudoku landscape-client-ui-install transmission-* hexchat-common gimp*　-y
 ```
 
 #### 2. 更新软件包
@@ -13,7 +15,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 ####  3. 安装常用软件
 ``` sh
-sudo apt-get install vim automake cmake autoconf build-essential libglu1-mesa-dev gcc g++ gcc-multilib g++-multilib fcitx minicom xinetd nscd tftpd-hpa tftp-hpa openvpn openssh-server net-tools sqlite3 samba-common samba cifs-utils libncurses5-dev zlib1g-dev gawk git-core subversion libssl-dev fcitx-config-gtk fcitx-frontend-all fcitx-module-cloudpinyin sogoupinyin fcitx-ui-classic meld electron-ssr google-chrome-stable wps-office netease-cloud-music -y
+sudo apt-get install vim automake cmake autoconf build-essential libglu1-mesa-dev gcc g++ gcc-multilib g++-multilib fcitx minicom xinetd nscd tftpd-hpa tftp-hpa openvpn openssh-server net-tools sqlite3 samba-common samba cifs-utils libncurses5-dev zlib1g-dev gawk git-core subversion libssl-dev fcitx-config-gtk fcitx-frontend-all fcitx-module-cloudpinyin sogoupinyin fcitx-ui-classic meld electron-ssr google-chrome-stable wps-office netease-cloud-music flameshot zeal virtualbox-6.0 -y
 ```
 
 #### 4. 清除安装包
@@ -39,14 +41,12 @@ sudo fc-cache -fv
 * [CLion](http://www.jetbrains.com/clion/)
 * [Pycharm](http://www.jetbrains.com/pycharm/)
 * [Idea](http://www.jetbrains.com/idea/)
-* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * [anaconda](https://www.anaconda.com/distribution/#download-section)
 * [typora](https://www.typora.io/#linux) 
 * [deep-win-ubuntu](https://github.com/wszqkzqk/deepin-wine-ubuntu)
 * **微信**
 * **TIM**
 * **dingtalk**
-* **迅雷极速版**
 * **旺旺**
 * **百度云盘**
 
@@ -75,6 +75,15 @@ cat /etc/group | grep vboxuser
 sudo adduser yeapht dialout
 ```
 * 修改搜狗输入法
+
+* 网易云问题
+
+  ```sh
+  sudo gedit /etc/sudoers
+  `最后一行新增yeapht ALL = NOPASSWD: /usr/bin/netease-cloud-music
+  sudo gedit /usr/share/applications/netease-cloud-music.desktop
+  `修改Exec=netease-cloud-music %U 为 Exec=sudo netease-cloud-music %U
+  ```
 
 * 注销后重新登录
 
@@ -143,4 +152,71 @@ nvcc -V
 * tensorflow-gpu
 
 * opencv-python
+
+#### 14. macubunt美化
+
+- [**参考**](https://www.noobslab.com/2018/08/macbuntu-1804-transformation-pack-ready.html)
+
+```sh
+sudo add-apt-repository ppa:noobslab/macbuntu
+sudo apt-get update 
+sudo apt-get install macbuntu-os-*
+# sudo apt-get install slingscold
+sudo ln -s /usr/share/applications/plank.desktop /etc/xdg/autostart/ #开机自启动plank
+sudo ln -s /usr/share/applications/cerebro.desktop /etc/xdg/autostart/ #开机自启动plank
+sudo apt-get purge xreader*
+```
+
+- **[cerebro0.3.2](https://github.com/KELiON/cerebro/releases)配置**
+
+```sh
+"plugins": {},				# 新增
+"trackingEnabled": false,	# 修改
+```
+
+#### 15. 下载工具
+
+```sh
+# 1.编译安装aria2
+wget https://github.com/aria2/aria2/releases/download/release-1.34.0/aria2-1.34.0.tar.gz
+tar -xvf aria2-1.34.0.tar.gz   
+cd /aria2-1.34.0
+./configure
+make
+sudo make install
+
+# 2.安装Aria2 for chrome插件
+aria2c -D
+
+# 3.uTorrent
+sudo tar -zxvf utserver.tar.gz -C /opt/
+sudo chmod 777 /opt/utorrent-server-alpha-v3_3/
+sudo ln -s /opt/utorrent-server-alpha-v3_3/utserver /usr/bin/utserver
+utserver -settingspath /opt/utorrent-server-alpha-v3_3/		# 启动uTorrent
+# 登录http://localhost:8080/gui查看，用户名：admin，密码无	
+```
+
+> **百度导出插件：https://github.com/acgotaku/BaiduExporter**
+>
+> ###### AriaNg Web助手：http://ariang.mayswind.net/latest/#!/settings/ariang
+
+
+
+#### 16. 程序员离线神器
+
+```sh
+sudo add-apt-repository ppa:zeal-developers/ppa
+sudo apt-get update
+sudo apt-get install zeal
+```
+
+#### 17. 图像视频处理
+
+```sh
+sudo add-apt-repository ppa:openshot.developers/ppa
+sudo add-apt-repository ppa:thomas-schiex/blender
+sudo add-apt-repository ppa:kritalime/ppa
+sudo apt-get update
+sudo apt-get install openshot-qt blender krita
+```
 

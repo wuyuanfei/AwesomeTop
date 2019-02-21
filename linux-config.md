@@ -15,7 +15,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 ####  3. 安装常用软件
 ``` sh
-sudo apt-get install vim automake cmake autoconf build-essential libglu1-mesa-dev gcc g++ gcc-multilib g++-multilib fcitx minicom xinetd nscd tftpd-hpa tftp-hpa openvpn openssh-server net-tools sqlite3 samba-common samba cifs-utils libncurses5-dev zlib1g-dev gawk git-core subversion libssl-dev fcitx-config-gtk fcitx-frontend-all fcitx-module-cloudpinyin sogoupinyin fcitx-ui-classic meld electron-ssr google-chrome-stable wps-office netease-cloud-music flameshot zeal virtualbox-6.0 -y
+sudo apt-get install vim automake cmake autoconf build-essential libglu1-mesa-dev gcc g++ gcc-multilib g++-multilib fcitx minicom xinetd nscd tftpd-hpa tftp-hpa openvpn openssh-server net-tools sqlite3 samba-common samba cifs-utils libncurses5-dev zlib1g-dev gawk git-core subversion libssl-dev fcitx-config-gtk fcitx-frontend-all fcitx-module-cloudpinyin sogoupinyin fcitx-ui-classic meld electron-ssr google-chrome-stable wps-office netease-cloud-music flameshot virtualbox-6.0 -y
 ```
 
 #### 4. 清除安装包
@@ -187,20 +187,11 @@ sudo make install
 
 # 2.安装Aria2 for chrome插件
 aria2c -D
-
-# 3.uTorrent
-sudo tar -zxvf utserver.tar.gz -C /opt/
-sudo chmod 777 /opt/utorrent-server-alpha-v3_3/
-sudo ln -s /opt/utorrent-server-alpha-v3_3/utserver /usr/bin/utserver
-utserver -settingspath /opt/utorrent-server-alpha-v3_3/		# 启动uTorrent
-# 登录http://localhost:8080/gui查看，用户名：admin，密码无	
 ```
 
 > **百度导出插件：https://github.com/acgotaku/BaiduExporter**
 >
 > ###### AriaNg Web助手：http://ariang.mayswind.net/latest/#!/settings/ariang
-
-
 
 #### 16. 程序员离线神器
 
@@ -210,13 +201,17 @@ sudo apt-get update
 sudo apt-get install zeal
 ```
 
-#### 17. 图像视频处理
+#### 17. 图像视频处理，视频录制
+
+[**自动抠图**](https://www.remove.bg/)
 
 ```sh
-sudo add-apt-repository ppa:openshot.developers/ppa
+sudo add-apt-repository ppa:kdenlive/kdenlive-stable
+#sudo add-apt-repository ppa:openshot.developers/ppa
 sudo add-apt-repository ppa:thomas-schiex/blender
 sudo add-apt-repository ppa:kritalime/ppa
+sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt-get update
-sudo apt-get install openshot-qt blender krita
+sudo apt-get install openshot-qt kdenlive blender krita obs-studio
 ```
 

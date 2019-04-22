@@ -2,28 +2,28 @@
 
 [TOC]
 
-#### 1. 移除不常用软件
+#### 移除不常用软件
 
 ``` sh
 sudo apt-get remove libreoffice-* firefox* totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines gnome-orca webbrowser-app gnome-sudoku landscape-client-ui-install transmission-* hexchat-common gimp*　-y
 ```
 
-#### 2. 更新软件包
+#### 更新软件包
 ``` sh
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-####  3. 安装常用软件
+####  安装常用软件
 ``` sh
 sudo apt-get install vim automake cmake autoconf build-essential libglu1-mesa-dev gcc g++ gcc-multilib g++-multilib fcitx minicom xinetd nscd tftpd-hpa tftp-hpa openvpn openssh-server net-tools sqlite3 samba-common samba cifs-utils libncurses5-dev zlib1g-dev gawk git-core subversion libssl-dev fcitx-config-gtk fcitx-frontend-all fcitx-module-cloudpinyin sogoupinyin fcitx-ui-classic meld electron-ssr google-chrome-stable wps-office netease-cloud-music flameshot virtualbox-6.0 -y
 ```
 
-#### 4. 清除安装包
+#### 清除安装包
 ``` sh
 sudo apt-get autoremove && sudo apt-get autoclean
 ```
 
-#### 5. 安装windows字体
+#### 安装windows字体
 
 ``` sh
 sudo cp winfonts /usr/share/fonts/ -a
@@ -34,7 +34,7 @@ sudo mkfontdir
 sudo fc-cache -fv 
 ```
 
-#### 6. 安装第三方软件
+#### 安装第三方软件
 
 * [福熙阅读器](https://www.foxitsoftware.cn/downloads/)
 * [QT](http://download.qt.io/official_releases/qt/)
@@ -50,7 +50,7 @@ sudo fc-cache -fv
 * **旺旺**
 * **百度云盘**
 
-#### 7. Markdown编辑器
+#### Markdown编辑器
 ``` sh
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo add-apt-repository 'deb https://typora.io/linux ./'
@@ -58,12 +58,12 @@ sudo apt-get update
 sudo apt-get install typora
 ```
 
-#### 8. 挂载window共享盘
+#### 挂载window共享盘
 ``` sh
 sudo mount -t cifs -o username='xxxxx',password='xxxxxx'  //192.168.xx.xx/共享盘 /mnt/
 ```
 
-#### 9. 后期配置
+#### 后期配置
 - 添加当前用户到vboxuser组
 
 ``` sh
@@ -87,7 +87,7 @@ sudo adduser yeapht dialout
 
 * 注销后重新登录
 
-#### 10. github相关
+#### github相关
 - [查询github.com](http://github.com.ipaddress.com/) 
 - [查询assets-cdn.github.com]( http://tool.chinaz.com/dns?type=1&host=assets-cdn.github.com&ip=)
 - [查询github.global.ssl.fastly.net](http://tool.chinaz.com/dns?type=1&host=assets-cdn.github.com&ip=)
@@ -97,17 +97,32 @@ sudo apt-get install nscd
 sudo /etc/init.d/nscd restart
 ```
 
-#### 11. 修改python源
+#### Python相关
 
 ```sh
+# 修改python源
 # ~/.pip/pip.conf
 [global]
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 [install]
 trusted-host=mirrors.aliyun.com
+
+#pip更新软件
+pip install pip-review
+pip-review --local --interactive
 ```
 
-#### 12. CUDA9.0安装
+#### jupyter notebook配置
+
+```sh
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+pip install jupyter_nbextensions_configurator
+jupyter nbextensions_configurator enable --user
+```
+
+#### CUDA9.0安装
+
 * 安装最新的NVIDIA显卡
 * 降低gcc、g++编译器版本，CUDA9.0要求GCC版本是5.x或者6.x
 
@@ -141,7 +156,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 nvcc -V
 ```
 
-####   13. python常用第三方包
+####   python常用第三方包
 
 * numpy
 
@@ -153,7 +168,7 @@ nvcc -V
 
 * opencv-python
 
-#### 14. macubunt美化
+#### macubunt美化
 
 - [**参考**](https://www.noobslab.com/2018/08/macbuntu-1804-transformation-pack-ready.html)
 
@@ -174,7 +189,7 @@ sudo apt-get purge xreader*
 "trackingEnabled": false,	# 修改
 ```
 
-#### 15. 下载工具
+#### 下载工具
 
 ```sh
 # 1.编译安装aria2
@@ -193,7 +208,7 @@ aria2c -D
 >
 > ###### AriaNg Web助手：http://ariang.mayswind.net/latest/#!/settings/ariang
 
-#### 16. 程序员离线神器
+#### 程序员离线神器
 
 ```sh
 sudo add-apt-repository ppa:zeal-developers/ppa
@@ -201,13 +216,13 @@ sudo apt-get update
 sudo apt-get install zeal
 ```
 
-#### 17. 图像视频处理，视频录制
+#### 图像视频处理，视频录制（推荐使用windows平台）
 
 [**自动抠图**](https://www.remove.bg/)
 
 ```sh
 sudo add-apt-repository ppa:kdenlive/kdenlive-stable
-#sudo add-apt-repository ppa:openshot.developers/ppa
+sudo add-apt-repository ppa:openshot.developers/ppa
 sudo add-apt-repository ppa:thomas-schiex/blender
 sudo add-apt-repository ppa:kritalime/ppa
 sudo add-apt-repository ppa:obsproject/obs-studio

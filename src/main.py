@@ -49,7 +49,7 @@ def do_main_task(ssr, playlist, param, scan_time):
     ssr.url = urls[param['cfg_id']]
 
     # print("============> config[%d], video[%d]" % (param['cfg_id'], param['video_id']))
-    print("\n********************************************************")
+    print("\n*************************************************************")
     print("* json file : config%d.json" % param['cfg_id'])
     print("* Datetime  : %s" % datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     print("* Server    : %s" % ssr.server)
@@ -57,7 +57,7 @@ def do_main_task(ssr, playlist, param, scan_time):
     print("* remarks   : %s" % ssr.remarks)
     print("* video{%03d}: %s" % (param['video_id'], playlist[param['video_id']]))
     print("* scan second: %d" % (scan_time))
-    print("********************************************************\n")
+    print("*************************************************************\n")
 
     # 1. close all sslocal
     print("[%s] close sslocal and all firefox now" % (datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
@@ -104,7 +104,7 @@ if __name__ == "__main__":
     while 1:
         if time.time() % 10 < 1.0:  # time.time() is not int
             now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            print("[%s] now[%d] start[%d] diff[%02d], scan[%d]s"
+            print("[%s] now[%d] start[%d] diff[%04d], scan[%d]s"
                   % (now, time.time(), start_time, time.time() - start_time, scan_time))
 
         if param["cfg_id"] == 0 and param["video_id"] == 0:

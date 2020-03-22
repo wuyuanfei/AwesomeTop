@@ -1,14 +1,14 @@
-# auto watch video
+# 视频自动播放工具
 
-## requirement
+## 1.环境
 - sudo pacman -S firefox python-pip wmctrl
 - sudo pip install ssr-utils
 - yay shadowsocksr
 
-## 运行说明
+## 2.运行说明
 - 开启火狐自动播放功能
 
-## 核心点
+## 3.核心点
 - python执行terminal命令
 ```
 os.system('ls -lh' + ' ' + xxx.txt)
@@ -27,4 +27,6 @@ killall sslocal > /dev/null 2>&1
 firefox https://xxxxxx > /dev/null 2>&1
 wmctrl -ic "$(wmctrl -l | grep 'Mozilla Firefox' | tail -1 | awk '{ print $1 }')"
 ```
+## 4.遗留
+- 暂不支持ss,vmess协议解析
   

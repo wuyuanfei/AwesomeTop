@@ -4,11 +4,8 @@ import random
 import ssr_utils
 from datetime import datetime
 
-# SS_JSON_CFG = "../config/ss/config"
-SSR_JSON_CFG = "../config/ssr/config"
-# VEMSS_JSON_CFG = "../config/vmess/config"
+from src.common import SSR_JSON_CFG, get_subscribe_url
 
-SUBSCRIBE_PATH = "../res/subscribe.txt"
 PLAY_LIST_PATH = "../res/playlist.txt"
 
 MAX_VIDEOS_SIZE = 100
@@ -17,31 +14,7 @@ MIN_PER_SEC = 60
 MIN_SCAN_MIN = 10 * MIN_PER_SEC
 MAX_SCAN_MIN = 20 * MIN_PER_SEC
 
-
-def get_subscribe_url():
-    file = open(SUBSCRIBE_PATH, 'r')
-    for line in file.readlines():
-        return line.strip(line[-1])
-    file.close()
-
-
-def save_ssr_config(index, config):
-    file = open(SSR_JSON_CFG + str(index) + ".json", 'w')
-    file.write(config)
-    file.close()
-
-
-def save_json_config():
-    for i in range(len(urls)):
-        ssr.url = urls[i]
-        save_ssr_config(i, ssr.config_json_string)
-    print("save all json config complete")
-
-
-subscribe = get_subscribe_url()
-urls = ssr_utils.get_urls_by_subscribe(subscribe)
-MAX_CONFIG_JSON_SIZE = len(urls)
-
+MAX_CONFIG_JSON_SIZE = 0
 MAX_VIDEO_SIZE = 0
 
 
@@ -85,13 +58,16 @@ def do_main_task(ssr, playlist, param, scan_time):
 
 if __name__ == "__main__":
     print("Welcome to auto watch videos! ")
+
+    subscribe = get_subscribe_url()
+    urls = ssr_utils.get_urls_by_subscribe(subscribe)
+    MAX_CONFIG_JSON_SIZE = len(urls)
+
     ssr = ssr_utils.SSR()
     ssr.load(ssr)
 
     playlist = list()
     param = {'cfg_id': 0, 'video_id': 0}
-
-    save_json_config()
 
     videos_file = open(PLAY_LIST_PATH, 'r')
     for line in videos_file.readlines():

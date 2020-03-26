@@ -2,8 +2,6 @@ SUBSCRIBE_PATH = "../res/subscribe.txt"
 
 # SS_JSON_CFG = "../config/ss/config"
 SSR_JSON_CFG = "../config/ssr/config"
-
-
 # VEMSS_JSON_CFG = "../config/vmess/config"
 
 

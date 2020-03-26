@@ -10,3 +10,13 @@ def get_subscribe_url():
     for line in file.readlines():
         return line.strip(line[-1])
     file.close()
+
+
+def save_ssr_config(index, config):
+    if -1 == index:
+        file = open(SSR_JSON_CFG + ".json", 'w')
+    else:
+        file = open(SSR_JSON_CFG + str(index) + ".json", 'w')
+
+    file.write(config)
+    file.close()
